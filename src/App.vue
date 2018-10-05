@@ -1,8 +1,22 @@
+<script>
+  import routes from "./config/routes.js";
+
+  export default{
+    data(){
+     return {
+       routes
+     } 
+    }
+  }
+</script>
+
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link  v-for="route in routes" 
+                    :key="route.path" 
+                    :to="route.path">{{route.name}}
+      </router-link> |
     </div>
     <router-view/>
   </div>
